@@ -1,12 +1,6 @@
-# angular-course-pubnub-chat
+# PubNub Chat Angular App
 
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.15.1.
-
-## Build & development
-
-Run `grunt` for building and `grunt serve` for preview.
-
-## Testing
-
-Running `grunt test` will run the unit tests with karma.
+This repo is from a course on building multiple pages in Angular.  With this
+project I built a package.json file from scratch with all of our dependencies
+that were required.  Then began work on some simple HTML layouts so we could
+have a fully functioning chat system.
