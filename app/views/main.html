@@ -1,23 +1,53 @@
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
-</div>
+<h4>Welcome {{username}}, click to select a channel below [<a href="#">Sign Out</a>]</h4>
 
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
+<ul class="list-unstyled list-inline">
+  <li class="roomlabel" ng-repeat="channel in channels">{{channel.name}}</li>
+  <li class="roomlabel">
+    <a class="btn btn-sm btn-default" href="" ng-click="showCreate = !showCreate">
+      <i class="fa fa-magic"></i> Create New ...
+    </a>
+  </li>
 
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
+  <div ng-show="showCreate">
+    <form ng-submit="createChannel()">
+      <h6>Create New Room</h6>
+      <div class="input-group">
+        <input type="text" class="input-sm form-control" ng-model="newChannel" placeholder="Room Name">
+        <span class="input-group-btn">
+          <input type="submit" class="input-sm btn btn-default" value="Create">
+        </span>
+      </div>
+    </form>
+  </div>
+</ul>
 
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
+<br>
+
+<div class="row">
+  <div class="col-sm-2">
+    <small class="marker">Users in Room</small>
+    <ul class="list-unstyled">
+      <li ng-repeat="user in users">{{user.name}}</li>
+    </ul>
+  </div> <!-- end user list -->
+
+  <div class="col-sm-10">
+    <form ng-submit="publish()">
+      <div class="input-group">
+        <input type="text" class="input-sm form-control" ng-model="newMessage" placeholder="Type a message...">
+        <span class="input-group-btn">
+          <input type="submit" class="input-sm btn btn-default" value="Send">
+        </span>
+      </div>
+    </form> <!-- end message submit form -->
+    <br />
+    <div class="well chatbox" id="chat_history">
+      <ul class="list-unstyled">
+        <li ng-repeat="message in messages">
+          <i class="fa fa-comment"></i> &nbsp;
+          {{message}}
+        </li>
+      </ul>
+    </div> <!-- end chat history -->
+  </div>
 </div>
